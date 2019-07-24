@@ -1,0 +1,53 @@
+<header>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#"><img src="favicon.ico">Logo</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" 
+    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/index" routerLinkActive="active">Index(Databinding)</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/page2" routerLinkActive="active">Page2(Directives)</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact(Forms)</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/newcmp" routerLinkActive="active">NewCmp(Services)</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/di" routerLinkActive="active">DependancyInjection(DI)</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/curd-opt" routerLinkActive="active">Curd-Operations</a>
+    </li>
+
+    <!-- Dropdown -->  
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown">
+        DD-Page
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdown01">
+        <a class="dropdown-item" [routerLink]="['ddpage','link1']" routerLinkActive="active">Link 1</a>
+        <a class="dropdown-item" [routerLink]="['ddpage','link2']" routerLinkActive="active">Link 2</a>
+      </div>
+    </li>
+  </ul>
+
+  <!-- Search box -->
+  <form class="form-inline mt-2 mt-md-0">
+    <input class="form-control mr-sm-1" type="text" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  </div>
+</nav>
+</header>
+<router-outlet></router-outlet>

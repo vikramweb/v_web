@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="row">  
+    <div class="col-sm-6">
+      <p> // without DI </p>
+      <div *ngFor="let hero of heroes">
+        {{hero.id}} - {{hero.name}}
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <p>// with DI</p>
+      <div *ngFor="let heroin of heroins">
+          {{heroin.id}} - {{heroin.name}}
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-6">
+      <p>// with DI (Dynamically Update)</p>
+      <p>tax option: {{ taxName }}</p>
+    </div>
+    <div class="col-sm-6">
+      <p>// with DI (From 2 Services)</p>
+      <p>Author names from myService</p>
+      <div *ngFor="let author of authors">
+        {{ author.name }}
+      </div> <br>
+      <p>City names from cityService</p>
+      <div *ngFor="let city of cities">
+        {{ city.name }}
+      </div>
+    </div> 
+  </div>
+
+</div>

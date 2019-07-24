@@ -1,0 +1,12 @@
+Search in Google: json-server 
+		|
+https://github.com/typicode/json-server 
+(click on first link)
+
+npm install -g json-server
+
+Navigate to our project via CMD, run below commond
+json-server -p 5555 products.json
+
+need to install http service and include in app.module.ts
+

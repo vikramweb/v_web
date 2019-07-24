@@ -1,0 +1,42 @@
+<div class="container">
+  
+  <h3>Pipes Examples</h3>
+  <div class="row">
+    <div class="col-sm-3">
+      <p>{{ name | lowercase }}</p>
+      <p>{{ name | uppercase }}</p>
+      <p>{{ name | titlecase }}</p>
+      <p>{{ name | slice:2:8 }}</p>
+      <p>{{ person | json }}</p>
+    </div>
+    <div class="col-sm-3">
+    <p>{{ 5.678 | number: '1.2-3' }}</p>
+    <p>{{ 5.678 | number: '3.4-5' }}</p>
+    <p>{{ 5.678 | number: '3.1-2' }}</p>
+    </div>
+    <div class="col-sm-3">
+      <p>{{ 0.6 | percent }}</p>
+      <p>{{ 60 | currency }}</p>
+      <p>{{ 66 | currency:'GBP' }}</p>
+    </div>
+    <div class="col-sm-3">
+      <p>{{ date }}</p>
+      <p>{{ date | date: 'short' }}</p>
+      <p>{{ date | date: 'shortDate' }}</p>
+      <p>{{ date | date: 'shortTime' }}</p>
+    </div>
+  </div>
+  <label><strong>Numbers only</strong></label> &nbsp;
+  <input (keypress)="numberOnly($event)" type="text" size="40"> 
+  <br> <br>
+
+  <h3>'Date' is displayed by service</h3>
+  <p>
+    <strong> Today's Date:</strong> {{todaydate}}
+  </p>
+  <h3>Displaying Json data from HttpClient Service</h3>
+    {{errorMsg}}
+  <ul *ngFor = "let data of users">
+    <li>Name: {{data.name}}, Address: {{data.address.city}}, Company Name: {{data.company.name}}</li>
+  </ul>
+</div>

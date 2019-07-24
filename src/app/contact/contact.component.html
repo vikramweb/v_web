@@ -1,0 +1,72 @@
+<div class="container">
+<div class="row">
+<div class="col-sm-6">
+  <form>
+    <h1 class="text-center">Templete driven Form</h1>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input required ngModel name="firstName" #firstName="ngModel" (change)="log(firstName)" 
+          type="text" minlength="3" maxlength="10" pattern="banana" class="form-control">
+        <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+          <div *ngIf="firstName.errors.required">First name is required</div>
+          <div *ngIf="firstName.errors.minlength">First name should be min {{ firstName.errors.minlength.requiredLength }} 
+            charecter</div>
+          <div *ngIf="firstName.errors.pattern">First name doesnt match pattern</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="secondName">Second Name</label>
+        <input required ngModel name="secondName" #secondName="ngModel" (change)="log(secondName)" 
+          type="text" minlength="3" maxlength="10" pattern="banana" class="form-control">
+        <div class="alert alert-danger" *ngIf="secondName.touched && !secondName.valid">
+          <div *ngIf="secondName.errors.required">Second name is required</div>
+          <div *ngIf="secondName.errors.minlength">Second name should be min {{ secondName.errors.minlength.requiredLength }} 
+            charecter</div>
+          <div *ngIf="secondName.errors.pattern">Second name doesnt match pattern</div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <textarea id="comment" cols="30" rows="5" class="form-control"></textarea>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<div class="col-sm-6">
+  <div *ngIf="!name; else forminfo">
+    <form [formGroup]="rFrom" (ngSubmit)="addPost(rFrom.value)">
+      <h1 class="text-center">Reactive Form</h1>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input required formControlName="name" class="form-control">
+        <div class="alert alert-danger" *ngIf="rFrom.controls['name'].touched && !rFrom.controls['name'].valid">
+          {{titleAlert1}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea formControlName="description" cols="30" rows="5" class="form-control"></textarea>
+        <div class="alert alert-danger" *ngIf="rFrom.controls['description'].touched && !rFrom.controls['description'].valid">
+          {{titleAlert2}}
+        </div>
+      </div>
+      <label for="validate" class="d-block">Minimum of 3 Charecters</label>
+      <input type="checkbox" name="validate" formControlName="validate" value="1"> Agree the terms and conditions
+
+      <br><br>
+      <input type="submit" class="btn btn-info btn-block" value="Submit Form" [disabled]="!rFrom.valid">
+    </form>
+  </div>
+
+  <ng-template #forminfo>
+    <div class="from-container">
+      <h1>{{ name }}</h1>
+      <p>{{ description }}</p>
+    </div>
+  </ng-template>  
+  <br><br>
+</div>
+</div>
+
+</div>

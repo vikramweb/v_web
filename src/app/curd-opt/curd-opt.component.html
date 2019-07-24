@@ -1,0 +1,19 @@
+<div class="col-sm-6 mx-auto">
+
+  <h1>Curd Operations</h1>
+  <a class="btn btn-success" routerLink="./product">+ Add Person</a>
+  <table class="table table-bordered table-hover table-striped">
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th colspan="2">Action</th>
+    <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.email}}</td>
+      <td [routerLink]="['/curd-opt/update', product.id]"><a>Update</a></td>
+      <td (click)="deleteProduct(product.id)"><a>Delete</a></td>
+    </tr>
+  </table>
+  
+</div>

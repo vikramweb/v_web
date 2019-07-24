@@ -1,0 +1,87 @@
+<div class="container">
+    <h3>{{title2}}</h3>
+<div class="row">
+    <div class="col-sm-4">    
+        <strong>Using ngFor directive</strong>
+        <ul>
+            <li *ngFor="let language of languages">{{ language.name }}</li>
+        </ul>
+    </div>
+
+    <div class="col-sm-4"> 
+        <strong>Using ngIf directive</strong>
+        <div *ngIf="isLoggedIn">
+            <p>Hello Packt Author</p>
+        </div>
+        <div *ngIf="!isLoggedIn">
+            <p>Hello Guest user</p>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <strong>Using ngSwitch directive</strong>
+        <div [ngSwitch]="taxRate">
+            <p *ngSwitchCase="'state'">State Tax</p>
+            <p *ngSwitchCase="'fedral'">Fedral Tax</p>
+            <p *ngSwitchCase="'medical'">Medical Tax</p>
+            <p *ngSwitchDefault>Default</p>
+        </div>
+    </div>
+</div>
+
+<h3>Attribute Directives</h3>
+<div class="row">
+    <div class="col-sm-4"> 
+        <strong>Built-in Directives</strong> <br>
+        <strong>Notification example using ngStyle</strong>
+        <p [ngStyle]="{'font-size': '13px', 'background-color':'#c5e1a5'}">Sample success message</p>
+        <strong>Notification example using ngClass</strong>
+        <p [ngClass]="'bg-warning'">Sample warning message</p>
+        <p [ngClass]="'bg-danger'">Sample error message</p>
+    </div>
+
+    <div class="col-sm-4">
+        <strong>Custome Attribute Directives</strong>
+        <h6 appHighlightDirective> Custom Directive - Custome Attribute</h6>
+        <h6 appHighlightDirective highlightColor="green"> Custom Directive - Custom Attribute with Parameters</h6>
+        <strong>Custome Attribute with Image Opacity <br> (Mouse-hover / Mouse-out)</strong>
+        <p><img [src]="imageUrl" width="200" height="100" appHighlightDirective showOpacity="0.5" hideOpacity="1"></p>
+    </div>
+
+    <div class="col-sm-4">
+        <strong>Custome Structural Directives</strong>
+        <ul *ngFor="let product of products">
+        <li *appCustomStructural="product">{{product.productName}}</li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <strong>List of Users:</strong> <br><br>
+        <ul *ngFor="let user of users">
+            <li>{{user}}</li>
+        </ul>
+    </div>
+
+    <div class="col-sm-4">
+        <strong>Single User:</strong>
+        <ul *ngFor = "let user of users; let i=index">
+            <li *ngIf="i==2">{{users[i]}}</li>
+        </ul>
+
+        <p>{{myname}}</p>
+    </div>
+    
+    <div class="col-sm-4">
+        <strong><label for="name">Search Name</label></strong> &nbsp;
+        <input type="text" id="name" [(ngModel)] = "searchTxt">
+        <ul *ngFor="let user of users | filter: searchTxt">
+            <li>{{user}}</li>
+        </ul>
+    </div>
+</div>
+
+
+<br><br>
+</div>
